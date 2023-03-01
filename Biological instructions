@@ -1,0 +1,8 @@
+seqkit fx2tab *.fa > *.tab    
+#从fa格式转化为tab
+
+seqkit tab2fx *.tab > *.fa
+#从标签格式转换为fa格式
+
+cat spikeprot1124.tab| awk '!a[$2]++{print}' > spikeprot1124_uniq.tab 
+#提取第二列的序列数据，并且删除重复序列
