@@ -6,3 +6,7 @@ seqkit tab2fx *.tab > *.fa
 
 cat spikeprot1124.tab| awk '!a[$2]++{print}' > spikeprot1124_uniq.tab 
 #提取第二列的序列数据，并且删除重复序列
+
+head 20 > **
+#当需要提取前20行序列时，指令的含义是提取前20行序列数据，重新命名为**
+
