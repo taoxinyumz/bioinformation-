@@ -10,7 +10,16 @@ data_dir <- 'path/to/data/directory' #将path/to/data/directory路径下的文�
 list.files(data_dir) #查看data_dir文件夹，可以看到 barcodes.tsv, genes.tsv, and matrix.mtx
 expression_matrix <- Read10X(data.dir = data_dir) # Read10X()函数将读取数据目录中的所有文件，包括matrix.mtx，barcodes.tsv和genes.tsv文件，并将它们转换为一个稀疏矩阵。
 seurat_object = CreateSeuratObject(counts = expression_matrix) # Seurat对象是Seurat包中定义的一种数据结构，用于存储和管理单细胞RNA测序的数据
+pbmc[["percent.mt"]] <- PercentageFeatureSet(pbmc, pattern = "^MT-") #该函数用于计算每个细胞中线粒体基因表达量所占比例，并将结果存储在名为"percent.mt"的metadata列中。
+HB.genes_total <- c("HBA1","HBA2","HBB","HBD","HBE1","HBG1","HBG2","HBM","HBQ1","HBZ") # 这段代码用于创建一个包含人类血液常见红细胞基因的向量HB.genes_total。
+HB_m <- match(HB.genes_total,rownames(pbmc@assays$RNA)) # 使用match函数，在Seurat对象中查找这些基因的索引，存储在HB_m变量中。
+HB.genes <- rownames(pbmc@assays$RNA)[HB_m] #使用索引位置提取符合条件的基因名称。最终，这些基因名称存储在变量HB.genes中。
+HB.genes <- HB.genes[!is.na(HB.genes)] #在 rownames(pbmc@assays$RNA) 中匹配到的基因，如果存在 NA 值，则将这些 NA 值删除。
+pbmc[["percent.HB"]]<-PercentageFeatureSet(pbmc,features=HB.genes)  #这行代码的意思是计算基因表达矩阵中所有样本中HB.genes基因集的百分比，并将其存储在pbmc对象的元数据中的"percent.HB"列中。
 
+Feature、count、线粒体基因、红细胞基因占比可视化。
+VlnPlot(pbmc, features = c("nFeature_RNA", "nCount_RNA", "percent.mt","percent.HB"), ncol = 4) #VlnPlot可视化QC指标，其中features参数指定要绘制的QC指标，ncol参数指定子图列数。这里绘制了四个QC指标：RNA测序的基因数（nFeature_RNA）、
+RNA计数数目（nCount_RNA）、线粒体基因的百分比（percent.mt）和血红蛋白基因的百分比（percent.HB）
 
 
 
