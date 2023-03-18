@@ -1,6 +1,8 @@
 运行NormalizeData函数
+```R
 scobj <- NormalizeData(scobj, normalization.method = "LogNormalize", scale.factor = 10000)#在单细胞测序分析中，LogNormalize通常被用来对单细胞数据进行处理，它可以将原始的UMI或基因表达值进行log2转换和标准化。
 为什么要进行log2转化：单细胞RNA测序数据中的计数值通常呈现指数分布，取对数可以将数据呈现为更加线性的分布，便于后续的分析。
+```
 进行标准化的方法及目的：常用的标准化方法包括TPM（Transcripts Per Million）和FPKM（Fragments Per Kilobase Million）等，也可以使用Z-score标准化。标准化后的数据可以用于细胞间的比较和基因表达量的定量分析。
 scale.factor = 10000的含义：标准化方法不考虑每个细胞中RNA的总量差异，因此可以使用一个scale.factor参数来缩放每个细胞的总RNA量，以使得细胞之间的RNA量更加可比。
 
