@@ -75,6 +75,22 @@ pbmc <- RunTSNE(object = pbmc, dims.use = 1:10, do.fast = TRUE, perplexity = 30)
 ~~~
 t-SNE是一种非线性的降维方法，它在高维空间中试图保留数据点之间的距离关系，使得相似的点在低维空间中仍然靠近，而不相似的点则远离。因此，使用t-SNE可以更好地可视化高维数据，发现数据中的结构和聚类，这对于理解数据的特点和分类很有帮助。
 
+## 差异表达基因分析：FindMarkers函数
+~~~
+markers.up <- FindMarkers(pbmc, ident.1 = 0, ident.2 = 1, logfc.threshold = 0.5, test.use = "t") markers.down <- FindMarkers(pbmc, ident.1 = 1, ident.2 = 0, logfc.threshold = 0.5, test.use = "t")
+object：Seurat对象
+ident.1：要比较的第一个细胞亚群的标识符
+ident.2：要比较的第二个细胞亚群的标识符
+test.use：用于检测差异表达的方法。默认为ROC检验，还可以选择wilcox检验或t检验。
+only.pos：是否只考虑在ident.1中高表达，在ident.2中低表达的基因。默认为FALSE，即考虑所有基因。
+min.pct：在至少一个细胞亚群中表达的最小百分比。默认为0.1。
+logfc.threshold：log2倍数的表达差异阈值。默认为0.25。
+return.thresh：仅返回FDR小于此值的基因。默认为0.1。
+pval.threshold：p值阈值。默认为0.05。
+verbose：是否输出详细信息。默认为TRUE。
+head(markers.up)      # 查看结果
+head(markers.down)    # 查看结果
+~~~
 
 
 
