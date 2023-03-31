@@ -1,1 +1,65 @@
+常见指令
+
+
+1  ls
+    2  git clone https://gitclone.com/github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting\n
+    3  git clone https://gitclone.com/github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions\n
+    4  vim ~/.zshrc
+    5  source ~/.zshrc
+    6  echo "export TERM=xterm-256color" >> ~/.zshrc
+    7  yay -S deepin-wine-wechat
+    8  ls
+    9  yay -S axel
+   10  axel -a https://github.91chi.fun/https://github.com/vufa/deepin-wine-wechat-arch/releases/download/v3.9.0.28-3/deepin-wine-wechat-3.9.0.28-3-x86_64.pkg.tar.zst
+   11  axel -a https://gh.ddlc.top/https://github.com/vufa/deepin-wine-wechat-arch/releases/download/v3.9.0.28-3/deepin-wine-wechat-3.9.0.28-3-x86_64.pkg.tar.zst
+   12  sudo pacman -U deepin-wine-wechat-3.9.0.28-3-x86_64.pkg.tar.zst
+   13  yay -S deepin=wine6-stable
+   14  yay -S deepin-wine6-stable
+   15  yay -S deepin-wine6-helper
+   16  yay -S deepin-wine-helper
+   17  sudo pacman -U deepin-wine-wechat-3.9.0.28-3-x86_64.pkg.tar.zst
+   18  yay -S deepin-wine-qq
+   19  yay -S fcitx5 fcitx5-qt fcitx5-gtk fcitx5-configtool
+   20  vim ~/.pam_environment
+   21  vim ~/.xprofile
+   22  yay -S rime-cloverpinyin
+   23  cd ~/.local/share/fcitx5
+   24  ls
+   25  cd rime
+   26  ls
+   27  less default.custom.yaml
+   28  reboot
+   29  cd ~/.config/fcitx5
+   30  ls
+   31  cd conf
+   32  ls
+   33  nohup clash &
+   34  ping www.baidu.com
+   35  cd app
+   36  git clone https://hub.fgit.gq/ayamir/fcitx5-nord.git
+   37  cd fcitx5-nord
+   38  cp -r Nord-Dark/ Nord-Light/ ~/.local/share/fcitx5/themes/
+   39  vim ~/.config/fcitx5/conf/classicui.conf
+   40  clash
+   41  cd ~
+   42  pwd
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
