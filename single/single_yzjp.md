@@ -1,3 +1,4 @@
+## 代码流程
 ~~~
 data.dir <- 'data.dir/'
 list.files(data.dir)
@@ -18,3 +19,13 @@ metadata$cells <- rownames(metadata)   #将细胞的ID添加到metadata中
 metadata$sample <- NA  #创建一个名为sample的column
 metadata$sample[which(str_detect(metadata$cells, "^d5_1"))] <- "d5_1"  #这段代码的含义是将metadata数据框中cells列以"d5_1"开头的元素的对应sample列的值设为"d5_1",其中which(str_detect(metadata$cells, "^d5_1"))这段代码会返回一个布尔向量，表示哪些元素（细胞）的cell名称以d5_1开头，然后使用which函数将这些元素的位置（下标）提取出来返回一个整数向量。
 ~~~
+
+## 一些错误及解决办法
+~~~
+1.显示失去了wt权限
+
+~~~
+
+
+
+
