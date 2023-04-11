@@ -31,6 +31,8 @@ metadata %>%      #“将metadata传递给下一个函数
   ggtitle("NCells")      #ggtitle("New Title")会将主标题改为"New Title"
 dev.off()   #dev.off() 是 R 语言中的一个函数，用于关闭绘图设备，将绘制好的图形保存到文件或显示到屏幕上
 
+# 
+
 
 ~~~
 
