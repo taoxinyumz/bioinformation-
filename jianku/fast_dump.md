@@ -11,3 +11,26 @@ sed 's/\r//g' ~/wgs/fastq/bak/metadata.txt | tail -n +2 | cut -f 3 | \
    ~/wgs/public/bin/rush -j 25 "~/wgs/soft/sratoolkit.3.0.0-centos_linux64/bin/fastq-dump \
    -v --split-3 --gzip {}
 ~~~
+
+## 包含SRA的accession号的csv文件，怎么根据该文件下载序列
+~~~
+while read sra; do
+    fastq-dump --split-files $sra
+done < sra_file.csv
+~~~
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
