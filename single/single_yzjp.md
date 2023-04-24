@@ -135,10 +135,10 @@ dev.off()
 summary(d5_merged_seurat@meta.data$percent.virus)      # 这段代码是对 d5_merged_seurat 数据集的元数据中的 percent.virus 变量进行汇总统计，并返回其基本的描述性统计信息，如最大值、最小值、中位数、平均值和四分位数等。
 View(d5_merged_seurat@meta.data)                       # 查看元数据
 ~~~
-# 基于四分位数值将 mitoRatio 转换为分类因子向量
+## 基于四分位数值将 mitoRatio 转换为分类因子向量
 ~~~
 d5_merged_seurat@meta.data$percent_virus <- cut(d5_merged_seurat@meta.data$percent.virus,      # 
-                                                breaks=c(-Inf, 0,0.05,0.5,5, Inf), 
+                                                breaks=c(-Inf, 0,0.05,0.5,5, Inf),             # 在cut函数中，使用breaks参数将数值型的变量分为几类
                                                 labels=c("Per=0%,n=12757","Per<0.05%,n=8482",
                                                          "Per0.05-0.5%,n=10349","Per0.5-5,n=1180",
                                                          "Per>5,n=417"))
