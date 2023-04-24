@@ -136,6 +136,7 @@ summary(d5_merged_seurat@meta.data$percent.virus)      # 这段代码是对 d5_m
 View(d5_merged_seurat@meta.data)                       # 查看元数据
 ~~~
 # 基于四分位数值将 mitoRatio 转换为分类因子向量
+~~~
 d5_merged_seurat@meta.data$percent_virus <- cut(d5_merged_seurat@meta.data$percent.virus,      # 
                                                 breaks=c(-Inf, 0,0.05,0.5,5, Inf), 
                                                 labels=c("Per=0%,n=12757","Per<0.05%,n=8482",
@@ -146,7 +147,7 @@ pdf("d5_FeatureScatter_percent_virus.pdf",width = 5,height = 4)
 FeatureScatter(object = d5_merged_seurat, feature1 = 'nGene', feature2 = 'percent.virus',
                group.by = "sample")
 dev.off()
-
+~~~
 
 ## 一些错误及解决办法
 ~~~
