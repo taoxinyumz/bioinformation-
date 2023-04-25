@@ -150,10 +150,14 @@ dev.off()
 ~~~
 
 ## 一些错误及解决办法
+ggplot2画柱状图的时候，柱子底部离x轴有很大距离，像下面这个样子，这估计会让强迫症不自在~
+为了美观，也为了拯救强迫症们，scale_y_continuous()里的expand参数可以解决这一问题。
 ~~~
-1.显示失去了wt权限
+library(ggplot2)
+ggplot(mpg) + geom_bar(aes(x = class))+scale_y_continuous(expand = c(0,0))
+~~~
+看起来舒服多了
 
-~~~
 
 
 
