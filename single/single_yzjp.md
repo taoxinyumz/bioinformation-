@@ -139,10 +139,10 @@ View(d5_merged_seurat@meta.data)                       # 查看元数据
 ~~~
 d5_merged_seurat@meta.data$percent_virus <- cut(d5_merged_seurat@meta.data$percent.virus,      # 
                                                 breaks=c(-Inf, 0,0.05,0.5,5, Inf),             # 在cut函数中，使用breaks参数将数值型的变量分为几类，-Inf表示负无穷，Inf表示正无穷。
-                                                labels=c("Per=0%,n=12757","Per<0.05%,n=8482",        # 
+                                                labels=c("Per=0%,n=12757","Per<0.05%,n=8482",         
                                                          "Per0.05-0.5%,n=10349","Per0.5-5,n=1180",
-                                                         "Per>5,n=417"))                       # 
-Freq <- as.data.frame(table(d5_merged_seurat@meta.data$percent_virus))
+                                                         "Per>5,n=417"))                       # 用于替换和重新命名的函数，引号之内为新的名子
+Freq <- as.data.frame(table(d5_merged_seurat@meta.data$percent_virus))                         # 计算 d5_merged_seurat 数据集中 percent_virus 列中各个取值的频数（频次）并将结果转换为数据框。
 pdf("d5_FeatureScatter_percent_virus.pdf",width = 5,height = 4)
 FeatureScatter(object = d5_merged_seurat, feature1 = 'nGene', feature2 = 'percent.virus',
                group.by = "sample")
