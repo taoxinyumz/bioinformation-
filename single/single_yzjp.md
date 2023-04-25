@@ -138,10 +138,10 @@ View(d5_merged_seurat@meta.data)                       # 查看元数据
 ## 基于四分位数值将 mitoRatio 转换为分类因子向量
 ~~~
 d5_merged_seurat@meta.data$percent_virus <- cut(d5_merged_seurat@meta.data$percent.virus,      # 
-                                                breaks=c(-Inf, 0,0.05,0.5,5, Inf),             # 在cut函数中，使用breaks参数将数值型的变量分为几类
-                                                labels=c("Per=0%,n=12757","Per<0.05%,n=8482",
+                                                breaks=c(-Inf, 0,0.05,0.5,5, Inf),             # 在cut函数中，使用breaks参数将数值型的变量分为几类，-Inf表示负无穷，Inf表示正无穷。
+                                                labels=c("Per=0%,n=12757","Per<0.05%,n=8482",        # 
                                                          "Per0.05-0.5%,n=10349","Per0.5-5,n=1180",
-                                                         "Per>5,n=417"))
+                                                         "Per>5,n=417"))                       # 
 Freq <- as.data.frame(table(d5_merged_seurat@meta.data$percent_virus))
 pdf("d5_FeatureScatter_percent_virus.pdf",width = 5,height = 4)
 FeatureScatter(object = d5_merged_seurat, feature1 = 'nGene', feature2 = 'percent.virus',
