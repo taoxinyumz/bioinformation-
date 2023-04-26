@@ -145,7 +145,7 @@ d5_merged_seurat@meta.data$percent_virus <- cut(d5_merged_seurat@meta.data$perce
 Freq <- as.data.frame(table(d5_merged_seurat@meta.data$percent_virus))                         # 计算 d5_merged_seurat 数据集中 percent_virus 列中各个取值的频数（频次）并将结果转换为数据框。
 pdf("d5_FeatureScatter_percent_virus.pdf",width = 5,height = 4)
 FeatureScatter(object = d5_merged_seurat, feature1 = 'nGene', feature2 = 'percent.virus',
-               group.by = "sample")
+               group.by = "sample")                                                            #
 dev.off()
 ~~~
 
