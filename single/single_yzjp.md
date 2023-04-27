@@ -149,6 +149,8 @@ FeatureScatter(object = d5_merged_seurat, feature1 = 'nGene', feature2 = 'percen
 dev.off()
 ~~~
 
+## 
+
 ## 一些错误及解决办法
 ggplot2画柱状图的时候，柱子底部离x轴有很大距离，像下面这个样子，这估计会让强迫症不自在~
 为了美观，也为了拯救强迫症们，scale_y_continuous()里的expand参数可以解决这一问题。
